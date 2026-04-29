@@ -1,0 +1,178 @@
+.header {
+  background-color: #F9F9F4;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+
+  &__logo {
+    text-decoration: none;
+    color: #002B1B;
+    font-family: serif;
+    font-size: 24px;
+    font-weight: bold;
+
+    h1 {
+      margin: 0;
+    }
+
+    &:hover {
+      color: #004d33;
+    }
+  }
+
+  &__nav {
+    display: flex;
+
+    &-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+    }
+
+    &-item {
+      // No specific styles
+    }
+
+    &-link {
+      text-decoration: none;
+      color: #002B1B;
+      font-family: sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #004d33;
+      }
+    }
+
+    &--open {
+      display: flex;
+    }
+  }
+
+  &__auth {
+    display: flex;
+    gap: 15px;
+
+    &-link {
+      text-decoration: none;
+      color: #002B1B;
+      font-family: sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border: 1px solid #002B1B;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #002B1B;
+        color: #F9F9F4;
+      }
+
+      &--primary {
+        background-color: #002B1B;
+        color: #F9F9F4;
+
+        &:hover {
+          background-color: #004d33;
+        }
+      }
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+
+    .header__menu-icon {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #002B1B;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #002B1B;
+        position: absolute;
+        transition: all 0.3s ease;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+
+    &:hover .header__menu-icon {
+      background-color: #004d33;
+
+      &::before,
+      &::after {
+        background-color: #004d33;
+      }
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    &__nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background-color: #F9F9F4;
+      border-top: 1px solid #e0e0e0;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      &-list {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      &-link {
+        font-size: 18px;
+      }
+
+      &--open {
+        display: flex;
+      }
+    }
+
+    &__auth {
+      display: none;
+    }
+
+    &__menu-toggle {
+      display: block;
+    }
+  }
+}
